@@ -1,12 +1,12 @@
 #include <curses.h>
 #include <ncurses.h>
 
-int lines[10][10];
 
 
 
-int main()
-{	int ch;
+int main() {	
+	int ch;
+	int content[100];
 
 	WINDOW *win = initscr();			/* Start curses mode 		*/
 	raw();				/* Line buffering disabled	*/
@@ -21,6 +21,8 @@ int main()
 		} else if (ch == KEY_BACKSPACE) {
 			move(getcury(win), getcurx(win)-1);
 			delch();
+		// } else if (ch == KEY_F(1)) {
+		// 	winstr(win, content);
 		} else {
 			printw("%c", ch);
 		}
